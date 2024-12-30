@@ -1,16 +1,54 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Drawing App</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    canvas {
+      border: 2px solid #000;
+      margin-top: 20px;
+      cursor: crosshair;
+    }
+    .controls {
+      margin-top: 20px;
+    }
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input[type="file"] {
+      margin-left: 10px;
+    }
+  </style>
 </head>
-
 <body>
-  Hello world
+  <h1>Enhanced Drawing App</h1>
+  <p>Draw, erase, and add backgrounds to your canvas!</p>
+  <canvas id="drawingCanvas" width="800" height="500"></canvas>
+  <div class="controls">
+    <label for="colorPicker">Color:</label>
+    <input type="color" id="colorPicker" value="#000000">
+    <label for="lineWidth">Line Width:</label>
+    <input type="range" id="lineWidth" min="1" max="10" value="3">
+    <button onclick="toggleEraser()">Eraser</button>
+    <button onclick="clearCanvas()">Clear</button>
+    <button onclick="saveImage()">Save</button>
+    <label for="backgroundUpload">Upload Background:</label>
+    <input type="file" id="backgroundUpload" accept="image/*">
+    <button onclick="undo()">Undo</button>
+    <button onclick="redo()">Redo</button>
+  </div>
   <script src="script.js"></script>
 </body>
-
 </html>
